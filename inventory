@@ -1,0 +1,9 @@
+[all]
+192.168.1.111
+
+[all:vars]
+
+ansible_user=userab
+ansible_ssh_pass=1111
+ansible_sudo_pass=1111
+

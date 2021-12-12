@@ -1,0 +1,43 @@
+---
+# tasks file for deploy_php
+
+- name: Install PHP   ## Установка php
+  yum: name=php state=latest
+
+
+- name: Install Modules PHP Stage1 ## Установка дополнительных модулей php Stage 1-6
+  yum: name=php-mysql state=latest
+
+
+- name: Install Modules PHP Stage2  ## Stage 2
+  yum: name=php-mbstring state=latest
+
+
+- name: Install Modules PHP Stage3  ## Stage 3
+  yum: name=php-mcrypt state=latest
+
+
+- name: Install Modules PHP Stage4  ## Stage 4
+  yum: name=php-devel state=latest
+
+
+- name: Install Modules PHP Stage5  ## Stage 5
+  yum: name=php-xml state=latest
+
+
+- name: Install Modules PHP Stage6  ## Stage 6
+  yum: name=php-gd state=latest
+
+
+- name: Setting PHP Output  ## Копирование файла страницы php()
+  template:
+    src: index.php.j2
+    dest: /var/www/html/{{ index }}
+
+
+- name: Changing the owner of a file  ##  Смена владельца файла страницы php() 
+  command: chown apache. /var/www/html/{{ index }}
+
+
+- name: Restart Apache Server  ## Перезапуск Apache Server
+  service: name=httpd state=restarted

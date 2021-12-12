@@ -1,0 +1,17 @@
+#########################################
+### PlayBook v.1.0 by Victor Vasyagin ###
+#####   Speciality for NetCracker   #####
+#########################################
+---
+- hosts: all    ## Использование всех серверов указанных в файле Inventory
+  become: yes   ## Разрешение работы под root - нужно для установки компонентов через yum
+  vars:         ## Обозначение переменной
+    index: info.php
+
+  tasks:
+  - name: Ping my servers  ## Проверка подключения 
+    ping:
+
+  roles:        ## Задействование ролей
+    - deploy_apache_server
+    - deploy_php

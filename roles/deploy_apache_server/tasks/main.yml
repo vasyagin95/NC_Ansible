@@ -1,0 +1,25 @@
+---
+# tasks file for deploy_apache_server
+
+- name: Install epel-release ##  Установка дополнительного репозитория
+  yum: name=epel-release state=latest
+
+
+- name: Install Apache WebServer  ## Установка Apache server
+  yum: name=httpd state=latest
+
+
+- name: Start Apache and Enable it on the every boot ## Включение Apache в автозагрузку
+  service: name=httpd state=started enabled=yes
+
+
+- name: Configuration Firewall  ##  Разрешение трафика на брандмауэре (Для удаленного браузера)
+  command: firewall-cmd --permanent --add-service=http
+
+
+- name: Configuration Firewall  ## Разрешение трафика на брандмауэре (Для удаленного браузера)
+  command: firewall-cmd --permanent --add-service=https
+
+
+- name: Restart Firewall  ##  Перезагрузка брандмаурэра 
+  command: firewall-cmd --reload
