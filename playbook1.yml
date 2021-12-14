@@ -13,5 +13,5 @@
     ping:
 
   roles:        ## Задействование ролей
-    - 11deploy_apache_server
-    - 11deploy_php
+    - deploy_apache_server
+    - deploy_php
