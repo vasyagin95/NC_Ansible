@@ -1,4 +1,4 @@
-192.168.0.104 ansible_ssh_pass=011195 ansible_ssh_user=user1
+192.168.0.104 ansible_ssh_pass=011195 ansible_ssh_user=user1 ansible_sudo_pass=011195
 
 #[all]
 #192.168.0.104
