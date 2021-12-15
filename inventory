@@ -1,9 +1,11 @@
-[all]
-192.168.0.104
+192.168.0.104 ansible_ssh_pass=011195 ansible_ssh_user=user1
 
-[all:vars]
+#[all]
+#192.168.0.104
 
-sudo_user=root
+#[all:vars]
+
+#sudo_user=root
 #ansible_user=user1
 #ansible_ssh_pass=011195
 #ansible_sudo_pass=011195
